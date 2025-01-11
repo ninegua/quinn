@@ -60,6 +60,9 @@ tracing-subscriber = { workspace = true }
 lazy_static = "1"
 wasm-bindgen-test = { workspace = true }
 
+[target.'cfg(all(target_family = "wasm", target_os = "unknown"))'.dev-dependencies]
+getrandom = { workspace = true, features = ["js"] }
+
 [lints.rust]
 # https://rust-fuzz.github.io/book/cargo-fuzz/guide.html#cfgfuzzing
 unexpected_cfgs = { level = "warn", check-cfg = ['cfg(fuzzing)'] }
